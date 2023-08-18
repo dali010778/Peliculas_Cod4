@@ -39,6 +39,8 @@ $routes->get('peliculas/edit/(:num)', 'Pelicula::edit/$1');*/
 
 $routes->presenter('pelicula');
 
+$routes->presenter('categoria');
+
 
 /*
  * --------------------------------------------------------------------
