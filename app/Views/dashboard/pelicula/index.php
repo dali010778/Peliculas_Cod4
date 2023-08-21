@@ -9,6 +9,8 @@
 <body>
     <h1>Listado de Peliculas</h1>
 
+    <?= view('partials/_session'); ?>
+    
     <a class="btn btn-warning" href="/dashboard/pelicula/new">Agregar</a>
     <a class="btn btn-warning" href="<?= route_to('test',2) ?>">Test</a>
     <br>

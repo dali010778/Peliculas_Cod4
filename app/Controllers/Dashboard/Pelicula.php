@@ -55,7 +55,7 @@ class Pelicula extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
         
-        return redirect()->to('/dashboard/pelicula');  
+        return redirect()->to('/dashboard/pelicula')->with('mensaje','Registro creado de manera exitosa');  
    }
 
    public function edit($id)
@@ -80,7 +80,7 @@ class Pelicula extends BaseController
         $peliculaModel->update($id, $data);
 
        // return redirect()->back(); //te redirecciona a la pagina anterior
-        return redirect()->to('/dashboard/pelicula'); //te redirecciona a una pagina en particular
+        return redirect()->to('/dashboard/pelicula')->with('mensaje','Registro modificado de manera exitosa');
     
    }
    
@@ -89,6 +89,8 @@ class Pelicula extends BaseController
    {
     $peliculaModel = new PeliculaModel();
     $peliculaModel->delete($id);
+    
+    session()->setFlashData("mensaje","Película eliminada");
     
     return redirect()->to('/dashboard/pelicula');
 

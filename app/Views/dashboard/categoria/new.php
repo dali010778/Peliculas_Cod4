@@ -8,6 +8,7 @@
 </head>
 <body>
     <h2>Crear Categoria</h2>
+
     <form action="/dashboard/categoria/create" method="post">
     <?= view('dashboard/categoria/_form', ['op' => 'Crear']) ?>
     </form>

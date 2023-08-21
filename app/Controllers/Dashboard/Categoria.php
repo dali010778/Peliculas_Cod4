@@ -38,7 +38,7 @@ class Categoria extends BaseController
             'titulo' => $this->request->getPost('titulo')
         ]);
         
-        return redirect()->to('/dashboard/categoria');
+        return redirect()->to('/dashboard/categoria')->with('mensaje','Registro creado de manera exitosa');
         
    }
 
@@ -71,7 +71,7 @@ class Categoria extends BaseController
         
         $categoriaModel->update($id, $data);
 
-        return redirect()->to('/dashboard/categoria');
+        return redirect()->to('/dashboard/categoria')->with('mensaje','Registro modificado de manera exitosa');
     
    }
 
@@ -80,7 +80,7 @@ class Categoria extends BaseController
     $categoriaModel = new CategoriaModel();
     $categoriaModel->delete($id);
     
-    return redirect()->to('/dashboard/categoria');
+    return redirect()->to('/dashboard/categoria')->with('mensaje','Registro Eliminado de manera exitosa');
 
    }
 }

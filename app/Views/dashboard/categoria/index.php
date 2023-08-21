@@ -9,6 +9,8 @@
 <body>
     <h1>Listado de Categorias</h1>
 
+    <?= view('partials/_session'); ?>
+    
     <a class="btn btn-warning" href="/dashboard/categoria/new">Agregar</a>
     <br>
     <table class="table" border="1">
