@@ -1,24 +1,33 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
 use App\Models\PeliculaModel;
+use App\Controllers\BaseController;
 
 class Pelicula extends BaseController
 {
-    public function index()
+    
+  public function test($id)
+  {
+    echo 'test de '. $id;
+  }
+  
+  public function index()
     {
        $peliculaModel = new PeliculaModel();
 
 
-        return view('pelicula/index',[
+        return view('dashboard/pelicula/index',[
             'peliculas' => $peliculaModel->findAll()
         ]);
     }
 
    public function new()
    {
-     return view('pelicula/new',[
+
+    //return redirect()->route('test'); //asi se redirecciona con rutas con nombre
+     return view('dashboard/pelicula/new',[
       'pelicula' => [
         'titulo' => '',
         'descripcion' => ''
@@ -31,7 +40,7 @@ class Pelicula extends BaseController
    {
      $peliculaModel = new PeliculaModel();
 
-      return view('pelicula/show',[
+      return view('dashboard/pelicula/show',[
         'pelicula' => $peliculaModel->find($id)
       ]);
    }
@@ -46,13 +55,13 @@ class Pelicula extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
         
-        
+        return redirect()->to('/dashboard/pelicula');  
    }
 
    public function edit($id)
    {
        $peliculaModel = new PeliculaModel();
-        return view('pelicula/edit', [
+        return view('dashboard/pelicula/edit', [
             'pelicula' => $peliculaModel->find($id)
         ]);
    }
@@ -69,6 +78,9 @@ class Pelicula extends BaseController
          ];
         
         $peliculaModel->update($id, $data);
+
+       // return redirect()->back(); //te redirecciona a la pagina anterior
+        return redirect()->to('/dashboard/pelicula'); //te redirecciona a una pagina en particular
     
    }
    
@@ -78,7 +90,7 @@ class Pelicula extends BaseController
     $peliculaModel = new PeliculaModel();
     $peliculaModel->delete($id);
     
-    echo "delete";
+    return redirect()->to('/dashboard/pelicula');
 
    }
 }

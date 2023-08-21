@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Pelicula</title>
+    <title>Editar Categoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Crear pelicula</h2>
-    <form action="/pelicula/create" method="post">
-    <?= view('pelicula/_form', ['op' => 'Crear']) ?>
+<h2>Editar Categoria</h2>
+    <form action="/dashboard/categoria/update/<?= $categoria['id'] ?>" method="post">
+       <?= view('dashboard/categoria/_form', ['op' => 'Actualizar']) ?>
     </form>
 </body>
 </html>

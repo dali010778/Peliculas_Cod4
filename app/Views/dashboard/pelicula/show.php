@@ -17,5 +17,7 @@
             <label  class="form-label">Descripcion</label>
             <textarea class="form-control" id="descripcion" name="descripcion" rows="2"><?= $pelicula['descripcion']; ?></textarea>
         </div>
+        <br>
+        <a href="/dashboard/pelicula" class="btn btn-primary">Regresar</a>        
 </body>
 </html>

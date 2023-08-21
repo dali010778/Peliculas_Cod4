@@ -37,9 +37,13 @@ $routes->get('/', 'Home::index');
 $routes->get('peliculas/new', 'Peliculas::create');
 $routes->get('peliculas/edit/(:num)', 'Pelicula::edit/$1');*/
 
-$routes->presenter('pelicula');
+$routes->group('dashboard', function($routes){
+    $routes->presenter('pelicula',['controller' => 'Dashboard\Pelicula']);
+    $routes->presenter('categoria',['controller' => 'Dashboard\Categoria']);
 
-$routes->presenter('categoria');
+    $routes->get('test/(:num)', 'Pelicula::test/$1', ['as' => 'test']);//asi se definen las rutas con nombre
+});
+
 
 
 /*
