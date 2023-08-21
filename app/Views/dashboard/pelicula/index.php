@@ -1,50 +1,41 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peliculas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
-    <h1>Listado de Peliculas</h1>
+<?= $this->extend('layouts/dashboard'); ?>
 
-    <?= view('partials/_session'); ?>
+<?= $this->section('header') ?>
+    <h2>Listado de Peliculas</h2>
+<?= $this->endSection() ?>
+    
+
+<?= $this->section('contenido')  ?>
     
     <a class="btn btn-warning" href="/dashboard/pelicula/new">Agregar</a>
     <a class="btn btn-warning" href="<?= route_to('test',2) ?>">Test</a>
     <br>
     <table class="table" border="1">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">titulo</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Opciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($peliculas as $peli){ ?>
+      <thead>
         <tr>
-            <th scope="row"><?= $peli['id']; ?></th>
-            <td><?= $peli['titulo']; ?></td>
-            <td><?= $peli['descripcion']; ?></td>
-            <td>
-                <a class="btn btn-warning" href="/dashboard/pelicula/show/<?= $peli['id']; ?>">Show</a>
-                <a class="btn btn-success" href="/dashboard/pelicula/edit/<?= $peli['id']; ?>">Editar</a>
-                <form action="/dashboard/pelicula/delete/<?= $peli['id']; ?>" method="post">
-                  <button class="btn btn-danger" type="submit">Eliminar</button>
-                </form>
-                
-            </td>
+          <th scope="col">id</th>
+          <th scope="col">titulo</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Opciones</th>
         </tr>
-    <?php } ?>
-  </tbody>
-</table>
-    
-
-
-
-    
-</body>
-</html>
+      </thead>
+      <tbody>
+        <?php foreach ($peliculas as $peli){ ?>
+            <tr>
+                <th scope="row"><?= $peli['id']; ?></th>
+                <td><?= $peli['titulo']; ?></td>
+                <td><?= $peli['descripcion']; ?></td>
+                <td>
+                    <a class="btn btn-warning" href="/dashboard/pelicula/show/<?= $peli['id']; ?>">Show</a>
+                    <a class="btn btn-success" href="/dashboard/pelicula/edit/<?= $peli['id']; ?>">Editar</a>
+                    <form action="/dashboard/pelicula/delete/<?= $peli['id']; ?>" method="post">
+                      <button class="btn btn-danger" type="submit">Eliminar</button>
+                    </form>
+                    
+                </td>
+            </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  
+ <?= $this->endSection() ?>
