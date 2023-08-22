@@ -18,12 +18,12 @@
       <tbody>
         <?php foreach ($categorias as $cate){ ?>
             <tr>
-                <th scope="row"><?= $cate['id']; ?></th>
-                <td><?= $cate['titulo']; ?></td>
+                <th scope="row"><?= $cate->id; ?></th>
+                <td><?= $cate->titulo; ?></td>
                 <td>
-                    <a class="btn btn-warning" href="/dashboard/categoria/show/<?= $cate['id']; ?>">Show</a>
-                    <a class="btn btn-success" href="/dashboard/categoria/edit/<?= $cate['id']; ?>">Editar</a>
-                    <form action="/dashboard/categoria/delete/<?= $cate['id']; ?>" method="post">
+                    <a class="btn btn-warning" href="/dashboard/categoria/show/<?= $cate->id; ?>">Show</a>
+                    <a class="btn btn-success" href="/dashboard/categoria/edit/<?= $cate->id; ?>">Editar</a>
+                    <form action="/dashboard/categoria/delete/<?= $cate->id; ?>" method="post">
                       <button class="btn btn-danger" type="submit">Eliminar</button>
                     </form>
                     

@@ -20,9 +20,7 @@ class Categoria extends BaseController
     public function new()
     {
       return view('dashboard/categoria/new',[
-       'categoria' => [
-         'titulo' => ''
-       ]
+       'categoria' => new CategoriaModel()
  
       ]);
 

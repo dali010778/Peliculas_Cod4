@@ -28,10 +28,7 @@ class Pelicula extends BaseController
 
     //return redirect()->route('test'); //asi se redirecciona con rutas con nombre
      return view('dashboard/pelicula/new',[
-      'pelicula' => [
-        'titulo' => '',
-        'descripcion' => ''
-      ]
+      'pelicula' => new PeliculaModel()
 
      ]);
    }

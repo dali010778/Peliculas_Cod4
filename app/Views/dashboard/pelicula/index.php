@@ -22,13 +22,13 @@
       <tbody>
         <?php foreach ($peliculas as $peli){ ?>
             <tr>
-                <th scope="row"><?= $peli['id']; ?></th>
-                <td><?= $peli['titulo']; ?></td>
-                <td><?= $peli['descripcion']; ?></td>
+                <th scope="row"><?= $peli->id; ?></th>
+                <td><?= $peli->titulo; ?></td>
+                <td><?= $peli->descripcion; ?></td>
                 <td>
-                    <a class="btn btn-warning" href="/dashboard/pelicula/show/<?= $peli['id']; ?>">Show</a>
-                    <a class="btn btn-success" href="/dashboard/pelicula/edit/<?= $peli['id']; ?>">Editar</a>
-                    <form action="/dashboard/pelicula/delete/<?= $peli['id']; ?>" method="post">
+                    <a class="btn btn-warning" href="/dashboard/pelicula/show/<?= $peli->id; ?>">Show</a>
+                    <a class="btn btn-success" href="/dashboard/pelicula/edit/<?= $peli->id; ?>">Editar</a>
+                    <form action="/dashboard/pelicula/delete/<?= $peli->id; ?>" method="post">
                       <button class="btn btn-danger" type="submit">Eliminar</button>
                     </form>
                     
