@@ -5,7 +5,10 @@
 <?= $this->endSection() ?>
 
 
-<?= $this->section('contenido')  ?>   
+<?= $this->section('contenido')  ?>  
+
+<?= view('partials/_form_error'); ?>
+
     <form action="/dashboard/pelicula/create" method="post">
     <?= view('dashboard/pelicula/_form', ['op' => 'Crear']) ?>
     </form>

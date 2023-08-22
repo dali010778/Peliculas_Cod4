@@ -50,10 +50,17 @@ class Pelicula extends BaseController
 
         $peliculaModel = new PeliculaModel();
 
-        $peliculaModel->insert([
+        if( $this->validate('peliculas')) {
+            $peliculaModel->insert([
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion')
         ]);
+      }else {
+        session()->setFlashdata([
+          'validation' => $this->validator
+        ]);
+        return redirect()->back()->withInput();
+      }
         
         return redirect()->to('/dashboard/pelicula')->with('mensaje','Registro creado de manera exitosa');  
    }
@@ -72,15 +79,22 @@ class Pelicula extends BaseController
 
         $peliculaModel = new PeliculaModel();
 
-        $data = [
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion')
-         ];
-        
-        $peliculaModel->update($id, $data);
+        if( $this->validate('peliculas')) {
+            $data = [
+              'titulo' => $this->request->getPost('titulo'),
+             'descripcion' => $this->request->getPost('descripcion')
+             ];
+            $peliculaModel->update($id, $data);
 
-       // return redirect()->back(); //te redirecciona a la pagina anterior
-        return redirect()->to('/dashboard/pelicula')->with('mensaje','Registro modificado de manera exitosa');
+        }else {
+          session()->setFlashdata([
+            'validation' => $this->validator
+          ]);
+          return redirect()->back()->withInput();
+        }
+        
+        //return redirect()->back()->with('mensaje','Registro modificado de manera exitosa'); //te redirecciona a la pagina anterior
+      return redirect()->to('/dashboard/pelicula')->with('mensaje','Registro modificado de manera exitosa');
     
    }
    
