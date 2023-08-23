@@ -48,6 +48,14 @@ $routes->group('web', function($routes){
     $routes->presenter('usuario',['controller' => 'Web\Usuario']);
 });
 
+$routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes){
+     $routes->resource('pelicula');
+});
+
+$routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes){
+    $routes->resource('categoria');
+});
+
 $routes->get('login','\App\Controllers\Web\Usuario::login', ['as' => 'usuario.login']);
 $routes->post('login_post','\App\Controllers\Web\Usuario::login_post', ['as' => 'usuario.login_post']);
 
