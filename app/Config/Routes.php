@@ -38,10 +38,14 @@ $routes->get('peliculas/new', 'Peliculas::create');
 $routes->get('peliculas/edit/(:num)', 'Pelicula::edit/$1');*/
 
 $routes->group('dashboard', function($routes){
+
+    $routes->get('pelicula/etiqueta/(:num)', 'Dashboard\Pelicula::etiqueta/$1',['as' => 'pelicula.etiqueta']);
+    $routes->post('pelicula/etiqueta/(:num)', 'Dashboard\Pelicula::etiqueta_post/$1',['as' => 'pelicula.etiqueta_post']);
+    $routes->post('pelicula/(:num)/etiqueta/(:num)/delete', 'Dashboard\Pelicula::etiqueta_delete/$1/$2', ['as' => 'pelicula.etiqueta_delete']);
     $routes->presenter('pelicula',['controller' => 'Dashboard\Pelicula']);
     $routes->presenter('categoria',['controller' => 'Dashboard\Categoria']);
-
-    $routes->get('test/(:num)', 'Pelicula::test/$1', ['as' => 'test']);//asi se definen las rutas con nombre
+    $routes->presenter('etiqueta',['controller' => 'Dashboard\Etiqueta']);
+ 
 });
 
 $routes->group('web', function($routes){

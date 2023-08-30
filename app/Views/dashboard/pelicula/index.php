@@ -15,6 +15,7 @@
         <tr>
           <th scope="col">id</th>
           <th scope="col">titulo</th>
+          <th scope="col">Categoria</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Opciones</th>
         </tr>
@@ -24,10 +25,12 @@
             <tr>
                 <th scope="row"><?= $peli->id; ?></th>
                 <td><?= $peli->titulo; ?></td>
+                <td><?= $peli->categorias; ?></td>
                 <td><?= $peli->descripcion; ?></td>
                 <td>
                     <a class="btn btn-warning" href="/dashboard/pelicula/show/<?= $peli->id; ?>">Show</a>
                     <a class="btn btn-success" href="/dashboard/pelicula/edit/<?= $peli->id; ?>">Editar</a>
+                    <a class="btn btn-info" href="<?= route_to('pelicula.etiqueta',$peli->id); ?>">Tags</a>
                     <form action="/dashboard/pelicula/delete/<?= $peli->id; ?>" method="post">
                       <button class="btn btn-danger" type="submit">Eliminar</button>
                     </form>
